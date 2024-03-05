@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id="number">
+    <input type="text" id="num1" placeholder="Enter number">
+      <input type="text" id="num2" placeholder="Enter number">
+   </div>
+   <div id="cal" >
+    <button onclick="add()">Add</button>
+    <button onclick="sub()" >substract</button>
+    <button onclick="mult()">multpy</button>
+    <button onclick="divide()">divide</button>
+   </div>
+   <div id="result"></div>
+</body>
+</html>
+
+<script>
+  function catchvalue(){
+    var a = parseFloat(document.getElementById("num1").value);
+    var b = parseFloat(document.getElementById("num2").value);
+    return[a,b];
+
+  }
+
+  function add() {
+    var values = catchvalue();
+    var result = values[0] + values[1];
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+
+function sub() {
+    var values = catchvalue();
+    var result = values[0] - values[1];
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+
+function mult() {
+    var values = catchvalue();
+    var result = values[0] * values[1];
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+
+function divide() {
+    var values = catchvalue();
+    if (values[1] === 0) {
+        document.getElementById("result").innerHTML = "Result: Cannot divide by zero";
+    } else {
+        var result = values[0] / values[1];
+        document.getElementById("result").innerHTML = "Result: " + result;
+    }
+}
+
+</script>
